@@ -12,20 +12,28 @@ This lab focuses on analysing network traffic and identifying vulnerabilities us
 
 ---
 
-# Question 1: Packet Analysis (ICMP)
+# Question 1: Analyse packet1.pcap and find the flag.
 
 ## Steps:
-1. Open **Wireshark**  
-2. Load `packet1.pcap`  
-3. Observe ICMP traffic  
-4. Right-click any ICMP packet → **Follow → ICMP Stream**  
-5. Check **Payload section**  
-6. Identify encoded text  
-7. Decode using **CyberChef (Base64)**  
+1. Open the .pcap file
+   
+- Launch Wireshark
+- Open packet1.pcap
+  
+2. Look for suspicious traffic
+   
+- Most packets are ICMP (ping)
+  
+3. Follow the ICMP stream
+   
+- In Wireshark:
+1. Click any ICMP packet
+2. Right-click → Follow → ICMP Stream 
 
-## Evidence
-![ICMP Stream](screenshots/wireshark_icmp.png)
-![Base64 Decode](screenshots/base64_decode.png)
+<p align="center">
+  <img src="screenshoots/tcp_stream.png" width="600">
+</p>
+
 
 ## Result: SUCTF2023{ai_is_cool}
 
