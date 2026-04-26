@@ -286,6 +286,13 @@ https://kali:8834 / https://localhost:8834
   <img src="screnshort/nessus2.png" width="600">
 </p>
 
+- After finish you can use command for exit the nessus
+```bash
+Sudo systemctl stop nessusd
+```
+
+# 
+
 1. What is the affected Port number
    - 8009
      
