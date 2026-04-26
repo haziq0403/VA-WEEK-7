@@ -31,109 +31,94 @@ This lab focuses on analysing network traffic and identifying vulnerabilities us
 2. Right-click → Follow → ICMP Stream 
 
 <p align="center">
-  <img src="screenshoots/wireshark_icmp.png" width="600">
+  <img src="screnshort/ICMP.png" width="600">
 </p>
 
+4. Check packet payload
+- In the bottom pane:
+- Look at Data / Payload section
+- You’ll see something like:
+  
+```bash
+U1VDVEYyMDIze2 FpX2lzX2 Nvb2x9
+```
 
-## Result: SUCTF2023{ai_is_cool}
+- This is Base64 encoded text
 
+5. Go to website CyberChef and use FROM BASE64
+- Paste the encoded text U1VDVEYyMDIze2 FpX2lzX2 Nvb2x9
 
+<p align="center">
+  <img src="screnshort/Base64.png" width="600">
+</p>
+
+- We get the output is
+  
+```bash
+SUCTF2023{ai_is_cool}
+```
+- Flag: SUCTF2023{ai_is_cool}
+  
 ---
 
 # Question 2: Packet Analysis (FTP)
 
-## Steps:
-1. Open `packet2.pcap` in Wireshark  
-2. Follow **TCP Stream**  
-3. Identify FTP commands:
-   - USER  
-   - PASS  
-   - RETR global_thermonuclear_war.gamerules.txt  
+1. Identify the protocol
+   
+- You used Follow TCP Stream
+- You see commands like:
+   - USER
+   - PASS
+   - RETR global_thermonuclear_war.gamerules.txt
+      
+```bash
+global_thermonuclear_war.gamerules.txt
+```
 
-4. Go to: File → Export Objects → FTP-DATA
+2. Find transferred file
+- Important line:
+   - RETR global_thermonuclear_war.gamerules.txt
+- A file was downloaded via FTP
+- That file likely contains the flag
+- Go to File - Export Object – Find FTP-DATA
+- You can see global_thermonuclear_war.gamerules.txt and you save.
 
-5. Save the file  
-6. Open file → find TinyURL  
-7. Decode using **Tic-Tac-Toe Cipher (dCode)**  
+<p align="center">
+  <img src="screnshort/FTP DATA.png" width="600">
+</p>
 
-## Evidence
-![TCP Stream](screenshots/tcp_stream.png)
-![FTP Export](screenshots/ftp_export.png)
-![Cipher Decode](screenshots/cipher_decode.png)
+4. Open the file
+- You get:
 
-## Result: EXMACHINAAVA
+```bash
+https://tinyurl.com/yr5zprz4
+```
+
+<p align="center">
+  <img src="screnshort/URL.png" width="600">
+</p>
 
 
----
 
-# Question 3: Nmap Analysis
 
-## Steps:
-1. Review Nmap output  
-2. Identify open ports:
-   - 21 (FTP)  
-   - 22 (SSH)  
-   - 80 (HTTP)  
-   - 139 (NetBIOS)  
-   - 445 (SMB)  
 
-3. Analyse vulnerabilities  
-4. Identify highest risk port  
 
-## Evidence
-![Nmap Result](screenshots/nmap_result.png)
 
-## Key Finding:
-- **Highest Risk:** Port 445 (SMB)  
-- **Reason:** Remote Code Execution (EternalBlue)
 
----
 
-# Question 4: OS Fingerprinting (TTL)
 
-## Steps:
-1. Observe TTL values in packets  
 
-## Analysis:
-- TTL = 64 → Linux / Unix  
-- TTL = 128 → Windows  
-- TTL = 255 → Router / Network Device  
 
-## Evidence
-![TTL Analysis](screenshots/ttl_analysis.png)
 
----
 
-# Question 5: Nessus Analysis
 
-## Steps:
-1. Start Nessus:
-2. Open browser:
-3. Login  
-4. Import:
-5. Go to:
-   - My Basic Network Scan  
-   - Vulnerabilities  
-   - Search: Tomcat  
 
-## Evidence
-![Nessus Scan](screenshots/nessus_scan.png)
 
-## Findings:
-- **Vulnerability:** Ghostcat  
-- **CVSS Score:** 9.8 (Critical)  
-- **Port:** 8009  
-- **Protocol:** AJP  
 
-## CVE:
-- CVE-2020-1938  
-- CVE-2020-1745  
 
----
 
-# Tools Used
-- Wireshark  
-- Nmap  
-- Nessus  
-- CyberChef  
-- dCode  
+
+
+
+
+
