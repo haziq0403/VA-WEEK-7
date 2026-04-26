@@ -230,24 +230,78 @@ OS Windows
   <img src="screnshort/Picture3.jpg" width="600">
 </p>
 
+- Open your browser and type this command to open Nessud
+```bash
+https://kali:8834 / https://localhost:8834
+```
+- Enter your name and password
+<p align="center">
+  <img src="screnshort/browser.png" width="600">
+</p>
 
+- This is a page for Nessus
+<p align="center">
+  <img src="screnshort/page.png" width="600">
+</p>
 
+- First import file from Week 7
+- Choose file Network_Scan.nessus
+-  And click Open
+<p align="center">
+  <img src="screnshort/inport file.png" width="600">
+</p>
 
+- This is your Scan
+<p align="center">
+  <img src="screnshort/scan.png" width="600">
+</p>
 
+- After that you click on My Basic Network Scan
+- Click on Vulnerabilities
+- Search name Tomcat
+- Click on folder Apache Tomcat
+<p align="center">
+  <img src="screnshort/tomcat.png" width="600">
+</p>
 
+- You can see get 3 Vulnerabilities
+   - CRITICAL
+   - MEDIUM
+   - INFO
+<p align="center">
+  <img src="screnshort/Vulnerabilities.png" width="600">
+</p>
 
+- Click on CRITICAL Vulnerabilities
+- Get name (Ghostcat)
+- CVSS v3.0 Base Score 9.8
+- Port 8009 / tcp /ajp12
+- Hosts 192.168.232.139
+- CVE : CVE-2020-1938, CVE-2020-1745
+<p align="center">
+  <img src="screnshort/nessus1.png" width="600">
+</p>
 
+<p align="center">
+  <img src="screnshort/nessus2.png" width="600">
+</p>
 
-
-
-
-
-
-
-
-
-
-
+1. What is the affected Port number
+   - 8009
+     
+2. What is the Affected protocol
+   - AJP (Apache JServ Protocol)
+     
+3. What is the CVSS Score of vulnerability found
+   - 9.8 Critical
+     
+4. Can you find any exploit related to this vulnerability?
+   - File inclusion / file disclosure
+   - /WEB-INF/web.xml
+     
+5. Find CVE for this vulnerability.
+   - CVE-2020-1938
+   - CVE-2020-1745
 
 
 
