@@ -31,7 +31,7 @@ This lab focuses on analysing network traffic and identifying vulnerabilities us
 2. Right-click → Follow → ICMP Stream 
 
 <p align="center">
-  <img src="screenshoots/tcp_stream.png" width="600">
+  <img src="screenshoots/wireshark_icmp.png" width="600">
 </p>
 
 
